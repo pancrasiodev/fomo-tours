@@ -1,0 +1,114 @@
+/* Booking stats */
+.admin-booking-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.admin-booking-stat {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.admin-booking-stat--green {
+  border-color: rgba(100, 200, 255, 0.2);
+}
+
+.admin-booking-stat--yellow {
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.admin-booking-stat--red {
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+.admin-booking-stat__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.admin-booking-stat--green .admin-booking-stat__value { color: #64c8ff; }
+.admin-booking-stat--yellow .admin-booking-stat__value { color: #fbbf24; }
+.admin-booking-stat--red .admin-booking-stat__value { color: #f87171; }
+
+.admin-booking-stat__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Filter tabs */
+.admin-booking-filters {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.admin-booking-filter {
+  padding: var(--space-2) var(--space-5);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.admin-booking-filter:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+}
+
+.admin-booking-filter--active {
+  background: #64c8ff;
+  border-color: #64c8ff;
+  color: var(--color-dark);
+}
+
+/* Receipt */
+.admin-table__receipt {
+  font-size: var(--text-xs);
+  color: #64c8ff;
+  font-family: monospace;
+}
+
+/* Empty state */
+.admin-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-16) 0;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.admin-empty-state p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .admin-booking-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-booking-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,112 @@
+/* Loading */
+.trip-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  color: var(--color-gray-400);
+}
+
+.trip-loading__spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-gray-100);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.trip-error {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.trip-error h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+.trip-error p {
+  font-size: var(--text-base);
+  color: var(--color-gray-400);
+}
+
+.trip-error a {
+  display: inline-flex;
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: background var(--transition-fast);
+}
+
+.trip-error a:hover {
+  background: var(--color-primary);
+}
+
+/* Main layout */
+.trip-details {
+  background: var(--color-white);
+  min-height: 100vh;
+}
+
+.trip-details__body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.trip-details__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.trip-details__sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 1024px) {
+  .trip-details__body {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-details__sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .trip-details__body {
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-8);
+  }
+
+  .trip-details__main {
+    gap: var(--space-12);
+  }
+}
