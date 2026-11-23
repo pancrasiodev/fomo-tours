@@ -36,7 +36,7 @@ export default function PreFooterCta() {
         
         {/* Center Editorial Title */}
         <h2 className="cravings-cta-title">
-          Ready to Satisfy Your<br />Sweet Cravings?
+          Ready to Satisfy Your{' '}<br />Sweet Cravings?
         </h2>
 
         {/* CTA Button Group: Pink 'Order Now' + Arrow Button */}

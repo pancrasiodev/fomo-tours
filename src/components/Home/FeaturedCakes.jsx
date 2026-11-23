@@ -166,7 +166,7 @@ export default function FeaturedCakes() {
         <div className="bestseller-title-wrap">
           <span className="bestseller-kicker">CAKE SHOP IN NAIROBI &amp; RUIRU</span>
           <h2 className="bestseller-main-title">
-            <span className="bestseller-title-line">Best Birthday Cakes, Event Cakes &amp; Graduation</span>
+            <span className="bestseller-title-line">Best Birthday Cakes, Event Cakes &amp; Graduation</span>{' '}
             <span className="bestseller-title-line highlight-strip">Cakes in Nairobi.</span>
           </h2>
         </div>

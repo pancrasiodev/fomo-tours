@@ -48,7 +48,7 @@ export default function FaqSection() {
           </div>
 
           <h2 className="faq-framer-title">
-            Cake Shop Nairobi<br />Prices &amp; Delivery FAQs
+            Cake Shop Nairobi{' '}<br />Prices &amp; Delivery FAQs
           </h2>
         </div>
 

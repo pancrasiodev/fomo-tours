@@ -344,6 +344,7 @@ export default function App() {
         <Route path="/admin/cake-quotes" element={<AdminCakeQuotes />} />
 
         {/* Legacy Clean-up Redirects */}
+        <Route path="/book-now" element={<Navigate to="/custom-order" replace />} />
         <Route path="/login" element={<Navigate to="/dashboard" replace />} />
         <Route path="/signin" element={<Navigate to="/dashboard" replace />} />
         <Route path="/signup" element={<Navigate to="/dashboard" replace />} />

@@ -55,7 +55,7 @@ export default function Hero() {
               </div>
 
               <h1 className="lany-hero-title">
-                Cake Shop in<br />
+                Cake Shop in{' '}<br />
                 Nairobi &amp; Ruiru
               </h1>
             </div>

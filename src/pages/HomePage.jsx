@@ -166,7 +166,7 @@ export default function HomePage() {
               marginBottom: '14px',
               fontFamily: 'var(--font-heading)'
             }}>
-              Fresh Cakes Baked Daily,<br />Delivered Across Nairobi
+              Fresh Cakes Baked Daily,{' '}<br />Delivered Across Nairobi
             </h2>
           </div>
 

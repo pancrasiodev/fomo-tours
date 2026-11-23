@@ -128,7 +128,7 @@ export default function CategoriesSection() {
       <div className="collection-header-row">
         <div className="collection-title-wrap">
           <h2 className="collection-headline">
-            <span className="headline-line">Birthday, Bento &amp;</span>
+            <span className="headline-line">Birthday, Bento &amp;</span>{' '}
             <span className="headline-line highlight-strip">Wedding Cakes.</span>
           </h2>
         </div>
