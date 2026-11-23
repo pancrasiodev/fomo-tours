@@ -1,0 +1,311 @@
+/* Framer Bakery Reviews - Stacking Cards Scroll with Moody Cake Background */
+.lany-bakery-reviews-section {
+  position: relative;
+  padding: 100px 0 140px;
+  background-color: #1a0e0c;
+  background-image: 
+    linear-gradient(rgba(24, 12, 10, 0.65), rgba(24, 12, 10, 0.72)),
+    url('/images/home/cake-reviews-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: visible;
+}
+
+.bakery-reviews-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Client Celebration Stories Header */
+.reviews-section-header {
+  text-align: center;
+  margin: 0 auto 52px;
+}
+
+.reviews-pre-pill {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FEF5A7;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.reviews-headline {
+  margin: 0;
+  font-family: 'Fredoka', -apple-system, sans-serif;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+}
+
+/* Stacking Cards Deck */
+.bakery-cards-deck {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Each Card is Sticky and Stacks As User Scrolls */
+.bakery-stack-card {
+  position: sticky;
+  width: 100%;
+  margin-bottom: 35vh;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bakery-stack-card:last-child {
+  margin-bottom: 20px;
+}
+
+/* White Testimonial Card */
+.bakery-testimonial-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: clamp(28px, 3.8vw, 44px);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(24px, 3.5vw, 42px);
+  align-items: center;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.bakery-testimonial-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Left Column: Official Google Business Review Badge Plaque */
+.testimonial-google-plaque {
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8F9FA 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.testimonial-google-plaque:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(66, 133, 244, 0.14);
+  border-color: rgba(66, 133, 244, 0.35);
+}
+
+.plaque-top-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plaque-google-g {
+  flex-shrink: 0;
+}
+
+.plaque-gbp-title {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #202124;
+  letter-spacing: -0.01em;
+}
+
+.plaque-score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.plaque-rating-num {
+  font-family: 'Fredoka', 'Playfair Display', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #202124;
+  line-height: 1;
+}
+
+.plaque-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Right Column: Review Quote & Details */
+.testimonial-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-quote-icon {
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.testimonial-quote-text {
+  margin: 0 0 24px;
+  padding: 0;
+  border: none;
+  font-family: 'Fredoka', 'Playfair Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.12rem, 1.5vw, 1.34rem);
+  line-height: 1.55;
+  color: #241411;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Author Row */
+.testimonial-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid rgba(36, 20, 17, 0.08);
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.author-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.testimonial-author-name {
+  margin: 0;
+  font-family: 'Fredoka', 'Playfair Display', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #241411;
+}
+
+.local-guide-badge {
+  display: inline-block;
+  background: #FFF0F4;
+  color: #E63946;
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+.review-stars-wrap {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.google-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  color: #3C4043;
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.google-profile-badge:hover {
+  background: #F8F9FA;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #1A73E8;
+}
+
+.google-profile-badge .google-g-icon {
+  flex-shrink: 0;
+}
+
+.gbp-text {
+  color: inherit;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .lany-bakery-reviews-section {
+    background-attachment: scroll;
+    padding: 70px 0 100px;
+  }
+
+  .bakery-testimonial-card {
+    grid-template-columns: 190px 1fr;
+    gap: 24px;
+    padding: 26px;
+  }
+
+  .testimonial-google-plaque {
+    height: 220px;
+    padding: 18px 14px;
+  }
+
+  .bakery-stack-card {
+    margin-bottom: 25vh;
+  }
+}
+
+@media (max-width: 680px) {
+  .bakery-testimonial-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .testimonial-google-plaque {
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .testimonial-quote-text {
+    font-size: 1.05rem;
+  }
+
+  .testimonial-author-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

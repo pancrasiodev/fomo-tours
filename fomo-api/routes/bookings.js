@@ -4,16 +4,29 @@ const {
   createBooking,
   getAllBookings,
   getBookingById,
-  updatePaymentStatus
+  updatePaymentStatus,
+  deleteBooking,
+  getTravelerBookings,
+  lookupGuestBooking,
+  claimGuestBooking,
+  cancelTravelerBooking,
 } = require('../controllers/bookingsController')
-const { authMiddleware } = require('../middleware/auth')
+const { authMiddleware, travelerAuthMiddleware, optionalTravelerAuth } = require('../middleware/auth')
 
-// Public
-router.post('/', createBooking)
+// Public / Guest Endpoints
+router.post('/', optionalTravelerAuth, createBooking)
+router.post('/upsert', optionalTravelerAuth, createBooking)
+router.post('/lookup', lookupGuestBooking)
+router.post('/claim', claimGuestBooking)
 
-// Admin
+// Traveler Dashboard Endpoints
+router.get('/my-trips', travelerAuthMiddleware, getTravelerBookings)
+router.post('/:id/cancel', travelerAuthMiddleware, cancelTravelerBooking)
+
+// Admin Endpoints
 router.get('/', authMiddleware, getAllBookings)
 router.get('/:id', authMiddleware, getBookingById)
 router.put('/:id/payment', authMiddleware, updatePaymentStatus)
+router.delete('/:id', authMiddleware, deleteBooking)
 
 module.exports = router

@@ -1,0 +1,666 @@
+/* ==========================================================================
+   CONTACT PAGE - LANY BAKERY SIGNATURE VIBE
+   Theme: Lany Signature Dark Chocolate (#24080D)
+   Accents: Pastry Cream (#FEF5A7), Blush Pink (#EEA0BA), Wine (#621927)
+   Containers: Borderless Sleek Elevation
+   ========================================================================== */
+
+.contact-page {
+  background-color: #24080D;
+  min-height: 100vh;
+  color: #FFFFFF;
+  padding-top: 100px;
+}
+
+.contact-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Banner Section
+   -------------------------------------------------------------------------- */
+.contact-hero-banner {
+  padding: 40px 0 36px;
+  text-align: center;
+}
+
+.contact-pill-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.contact-pill {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FEF5A7;
+  background: rgba(254, 245, 167, 0.12);
+  padding: 6px 18px;
+  border-radius: 999px;
+}
+
+.contact-hero-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.contact-hero-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 720px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.contact-trust-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.badge-sparkle {
+  color: #FEF5A7;
+}
+
+/* --------------------------------------------------------------------------
+   Body Layout Section
+   -------------------------------------------------------------------------- */
+.contact-body-section {
+  padding: 24px 0 80px;
+}
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: Studio Information & Channels
+   -------------------------------------------------------------------------- */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Studio Feature Card */
+.studio-feature-card {
+  background: #2E0B11;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.studio-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #140306;
+}
+
+.studio-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.studio-feature-card:hover .studio-card-img {
+  transform: scale(1.04);
+}
+
+.studio-live-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(20, 3, 6, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FEF5A7;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 8px #25D366;
+  animation: pulseLive 2s infinite;
+}
+
+@keyframes pulseLive {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.studio-card-content {
+  padding: 20px 22px;
+}
+
+.studio-card-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.studio-card-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Direct WhatsApp Spotlight Box */
+.contact-wa-spotlight {
+  background: #180407;
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.wa-spotlight-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wa-spotlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.wa-spotlight-label {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FEF5A7;
+  text-transform: uppercase;
+}
+
+.wa-spotlight-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.wa-spotlight-p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.wa-spotlight-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 800;
+  padding: 13px 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.wa-spotlight-btn:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+}
+
+/* Contact Cards Stack */
+.contact-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-info-item {
+  background: #2E0B11;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.contact-info-item:hover {
+  transform: translateY(-2px);
+}
+
+.info-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(254, 245, 167, 0.14);
+  color: #FEF5A7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.info-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FEF5A7;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.info-value a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-value a:hover {
+  color: #FEF5A7;
+}
+
+.info-hint {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Configurator Promo Banner */
+.configurator-promo-card {
+  background: rgba(254, 245, 167, 0.08);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.promo-text strong {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  color: #FEF5A7;
+  margin-bottom: 3px;
+}
+
+.promo-text p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.promo-link-btn {
+  background: #FEF5A7;
+  color: #24080D;
+  text-decoration: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 9px 16px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.promo-link-btn:hover {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: Contact & Inquiry Form
+   -------------------------------------------------------------------------- */
+.contact-form-col {
+  position: relative;
+}
+
+.contact-form-card {
+  background: #2E0B11;
+  border-radius: 24px;
+  padding: 38px 40px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.form-card-header {
+  margin-bottom: 28px;
+}
+
+.form-eyebrow {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #FEF5A7;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.form-card-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+  letter-spacing: -0.015em;
+}
+
+.form-card-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-actual-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FEF5A7;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(254, 245, 167, 0.2);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+  background: #140306;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #FEF5A7;
+  background: #1B0509;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option {
+  background: #24080D;
+  color: #FFFFFF;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.contact-submit-btn {
+  background: #FEF5A7;
+  color: #24080D;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 16px 24px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(254, 245, 167, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 6px;
+}
+
+.contact-submit-btn:hover {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(254, 245, 167, 0.45);
+}
+
+.form-footer-guarantee {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  margin: 4px 0 0;
+  line-height: 1.45;
+}
+
+/* Submission Success View */
+.contact-submitted-notice {
+  text-align: center;
+  padding: 30px 16px;
+  background: #180407;
+  border-radius: 18px;
+}
+
+.submitted-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.submitted-badge {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #25D366;
+  background: rgba(37, 211, 102, 0.15);
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.submitted-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+
+.submitted-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
+.submitted-action-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.submitted-wa-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.submitted-wa-btn:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+}
+
+.reset-form-btn {
+  background: none;
+  border: 1px solid rgba(254, 245, 167, 0.3);
+  color: #FEF5A7;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 11px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.reset-form-btn:hover {
+  background: rgba(254, 245, 167, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-form-card {
+    padding: 26px 20px;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-trust-badges {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .trust-badge {
+    justify-content: center;
+  }
+
+  .configurator-promo-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

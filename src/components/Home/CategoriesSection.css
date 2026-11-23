@@ -1,0 +1,393 @@
+/* ==========================================================================
+   Our Collection Section - Editorial Auto-Moving Carousel
+   - Slowly moving continuously from right to left
+   - Stills (pauses) instantly on hover or touch
+   - Baseline aligned at bottom (align-items: flex-end)
+   - Staggered heights rising organically (some higher, others lower)
+   - Descriptions appear on image hover
+   - Zero numbering, clean understated caption beneath photo
+   ========================================================================== */
+
+.lany-collection-section {
+  position: relative;
+  width: 100%;
+  background-color: #F4EAE0;
+  color: #551421;
+  padding: 56px 0 68px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Header Row
+   -------------------------------------------------------------------------- */
+.collection-header-row {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px 44px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.collection-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.collection-headline {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #551421;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-line {
+  display: block;
+}
+
+.headline-line.highlight-strip {
+  display: block;
+}
+
+.collection-meta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.collection-meta-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #551421;
+  max-width: 270px;
+  text-align: right;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Infinite Auto-Moving Carousel Track
+   -------------------------------------------------------------------------- */
+.collection-track-container {
+  width: 100%;
+  overflow-x: hidden; /* Clean marquee ribbon without ugly horizontal scrollbars */
+  overflow-y: hidden;
+  padding: 16px 0 24px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: grab;
+}
+
+.collection-track-container:active {
+  cursor: grabbing;
+}
+
+/* Gradient edge masks to make entries and exits feel soft and infinite */
+.collection-track-container::before,
+.collection-track-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.collection-track-container::before {
+  left: 0;
+  background: linear-gradient(90deg, #F4EAE0 0%, rgba(244, 234, 224, 0) 100%);
+}
+
+.collection-track-container::after {
+  right: 0;
+  background: linear-gradient(270deg, #F4EAE0 0%, rgba(244, 234, 224, 0) 100%);
+}
+
+.collection-track {
+  display: flex;
+  align-items: flex-end; /* All image bottoms lock to the exact same horizontal baseline! */
+  gap: 26px;
+  width: max-content;
+  will-change: transform;
+  /* 42s delivers a luxurious, steady, gentle gliding drift */
+  animation: lanyMarqueeScroll 42s linear infinite;
+}
+
+/* STILLS ON HOVER OR ACTIVE TOUCH */
+.collection-track-container:hover .collection-track,
+.collection-track-container.is-paused .collection-track,
+.collection-track:hover,
+.collection-track:focus-within {
+  animation-play-state: paused !important;
+}
+
+@keyframes lanyMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate exactly half of track (-50%) for 100% seamless infinite loop */
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect user's reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .collection-track {
+    animation: none;
+  }
+  .collection-track-container {
+    overflow-x: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cards - Baseline Aligned with Dynamic Heights
+   -------------------------------------------------------------------------- */
+.collection-card {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Card 1: Birthday Cake - Medium baseline height */
+.collection-card.card-cadence-1 {
+  width: 340px;
+}
+.collection-card.card-cadence-1 .card-photo-frame {
+  height: 440px;
+}
+
+/* Card 2: Graduation Cake - Tall vertical (rises high like avocado toast) */
+.collection-card.card-cadence-2 {
+  width: 320px;
+}
+.collection-card.card-cadence-2 .card-photo-frame {
+  height: 570px;
+}
+
+/* Card 3: Cupcakes - Wide landscape & lower elevation (like table nine spread) */
+.collection-card.card-cadence-3 {
+  width: 480px;
+}
+.collection-card.card-cadence-3 .card-photo-frame {
+  height: 405px;
+}
+
+/* Card 4: Baby Shower - Medium-tall vertical */
+.collection-card.card-cadence-4 {
+  width: 330px;
+}
+.collection-card.card-cadence-4 .card-photo-frame {
+  height: 500px;
+}
+
+/* Card 5: Wedding Cake - Grandest tall vertical (highest elevation) */
+.collection-card.card-cadence-5 {
+  width: 360px;
+}
+.collection-card.card-cadence-5 .card-photo-frame {
+  height: 590px;
+}
+
+/* Card 6: Custom Cakes - Architectural medium-wide */
+.collection-card.card-cadence-6 {
+  width: 410px;
+}
+.collection-card.card-cadence-6 .card-photo-frame {
+  height: 440px;
+}
+
+/* --------------------------------------------------------------------------
+   Photo Frame & Clean Architectural Edges
+   -------------------------------------------------------------------------- */
+.card-photo-frame {
+  position: relative;
+  width: 100%;
+  background-color: #E6D8CC;
+  border-radius: 0; /* Sharp clean edges matching the Framer editorial spread */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card:hover .card-photo-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   Hover Overlay (Descriptions shown on hover)
+   -------------------------------------------------------------------------- */
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(53, 14, 23, 0.88);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px 24px;
+  box-sizing: border-box;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card:hover .card-hover-overlay,
+.collection-card:focus-within .card-hover-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateY(8px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card:hover .overlay-content,
+.collection-card:focus-within .overlay-content {
+  transform: translateY(0);
+}
+
+.overlay-description {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #F8EFE9;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.overlay-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F4EAE0;
+  color: #551421;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  width: fit-content;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.collection-card:hover .overlay-action:hover {
+  background: #FFFFFF;
+  transform: translateX(2px);
+}
+
+.action-arrow {
+  transition: transform 0.2s ease;
+}
+
+.collection-card:hover .overlay-action:hover .action-arrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Caption Block Beneath Photo (No Numbering)
+   -------------------------------------------------------------------------- */
+.card-caption-block {
+  padding-top: 10px;
+  padding-left: 1px;
+}
+
+.card-title-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #551421;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.collection-card:hover .card-title-text {
+  color: #8A1F36;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .collection-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 24px 28px;
+  }
+
+  .collection-meta-wrap {
+    align-items: flex-start;
+    padding-top: 0;
+  }
+
+  .collection-meta-text {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .collection-card.card-cadence-1 { width: 280px; }
+  .collection-card.card-cadence-1 .card-photo-frame { height: 380px; }
+
+  .collection-card.card-cadence-2 { width: 270px; }
+  .collection-card.card-cadence-2 .card-photo-frame { height: 480px; }
+
+  .collection-card.card-cadence-3 { width: 380px; }
+  .collection-card.card-cadence-3 .card-photo-frame { height: 350px; }
+
+  .collection-card.card-cadence-4 { width: 280px; }
+  .collection-card.card-cadence-4 .card-photo-frame { height: 430px; }
+
+  .collection-card.card-cadence-5 { width: 300px; }
+  .collection-card.card-cadence-5 .card-photo-frame { height: 500px; }
+
+  .collection-card.card-cadence-6 { width: 330px; }
+  .collection-card.card-cadence-6 .card-photo-frame { height: 380px; }
+}
+
+@media (max-width: 640px) {
+  .lany-collection-section {
+    padding: 44px 0 52px;
+  }
+
+  .collection-header-row {
+    padding: 0 16px 22px;
+  }
+}

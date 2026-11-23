@@ -1,0 +1,499 @@
+/* ==========================================================================
+   ORDER TRACKING PAGE - ARTISANAL REAL-TIME BAKERY UPDATES
+   ========================================================================== */
+
+.order-track-page {
+  background-color: #FAF7F2;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+.track-hero-banner {
+  background: #24080D;
+  color: #FFFFFF;
+  padding: 60px 0 50px;
+  text-align: center;
+}
+
+.track-page-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 12px 0 10px;
+  color: #FFFFFF;
+}
+
+.track-page-subtitle {
+  font-size: 1rem;
+  color: #D3C5C4;
+  max-width: 540px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.track-search-box {
+  display: flex;
+  align-items: center;
+  max-width: 520px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 9999px;
+  padding: 6px 8px 6px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.track-search-icon {
+  color: #621927;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.track-search-box input {
+  flex-grow: 1;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #24080D;
+  outline: none;
+  background: transparent;
+}
+
+.track-submit-btn {
+  background: #621927;
+  color: #FFFFFF;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.track-submit-btn:hover {
+  background: #47111B;
+}
+
+/* Body Container */
+.track-body-container {
+  margin-top: 40px;
+}
+
+.track-error-card {
+  background: #FEE2E2;
+  border: 1px solid #FCA5A5;
+  color: #991B1B;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.track-error-card h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.track-error-card p {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* Order Summary Header */
+.track-order-summary-header {
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 8, 13, 0.08);
+  border-radius: 20px;
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(36, 8, 13, 0.03);
+}
+
+.track-ref-badge {
+  background: #FEF5A7;
+  color: #24080D;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.track-header-meta h2 {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.6rem;
+  margin: 8px 0 4px;
+  color: #24080D;
+}
+
+.track-sub-details {
+  display: flex;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #7A6968;
+}
+
+.track-status-pill-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.track-order-status-pill {
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #FEF5A7;
+  color: #24080D;
+}
+
+.track-order-status-pill.baking {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.track-order-status-pill.ready-for-collection {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.track-order-status-pill.out-for-delivery {
+  background: #E0E7FF;
+  color: #3730A3;
+}
+
+.track-order-status-pill.delivered {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.track-refresh-btn {
+  background: #FAF7F2;
+  border: 1px solid rgba(36, 8, 13, 0.12);
+  border-radius: 9999px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #621927;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.track-refresh-btn:hover {
+  background: #FBEAEE;
+}
+
+/* Timeline Card */
+.track-timeline-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 8, 13, 0.08);
+  border-radius: 20px;
+  padding: 28px 30px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(36, 8, 13, 0.03);
+}
+
+.track-timeline-card h3 {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 20px;
+  color: #24080D;
+}
+
+.timeline-stepper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 60%;
+  width: 80%;
+  height: 2px;
+  background: #EFE9E5;
+  z-index: 1;
+}
+
+.timeline-step.completed:not(:last-child)::after {
+  background: #621927;
+}
+
+.step-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FAF7F2;
+  color: #8C7A78;
+  border: 2px solid #EFE9E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  z-index: 2;
+  transition: all 0.2s;
+}
+
+.timeline-step.completed .step-icon-wrap {
+  background: #621927;
+  color: #FFFFFF;
+  border-color: #621927;
+}
+
+.timeline-step.current .step-icon-wrap {
+  box-shadow: 0 0 0 4px rgba(98, 25, 39, 0.2);
+}
+
+.step-name {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #24080D;
+}
+
+.step-desc {
+  font-size: 0.72rem;
+  color: #7A6968;
+  line-height: 1.3;
+}
+
+/* Details Grid */
+.track-details-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+.track-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 8, 13, 0.08);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(36, 8, 13, 0.03);
+}
+
+.track-card h3 {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 18px;
+  color: #24080D;
+}
+
+.track-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.track-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(36, 8, 13, 0.06);
+}
+
+.track-item-info h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: #24080D;
+}
+
+.track-item-tags {
+  display: flex;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #621927;
+  font-weight: 600;
+}
+
+.track-item-msg {
+  font-size: 0.76rem;
+  color: #7A6968;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.track-item-extras {
+  font-size: 0.74rem;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.track-item-price-qty {
+  text-align: right;
+}
+
+.t-qty {
+  display: block;
+  font-size: 0.78rem;
+  color: #8C7A78;
+}
+
+.t-price {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #621927;
+}
+
+.track-financials-card {
+  background: #FAF7F2;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.f-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  color: #5A4A49;
+  margin-bottom: 6px;
+}
+
+.f-row.grand-total {
+  border-top: 1px solid rgba(36, 8, 13, 0.1);
+  padding-top: 8px;
+  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #621927;
+}
+
+.pay-status-tag {
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.pay-status-tag.paid {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.pay-status-tag.pending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+/* Delivery Details */
+.track-delivery-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.del-info-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.del-icon {
+  color: #621927;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.del-info-row strong {
+  font-size: 0.82rem;
+  color: #8C7A78;
+  display: block;
+}
+
+.del-info-row p {
+  margin: 2px 0 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #24080D;
+}
+
+.track-support-card {
+  background: #24080D;
+  color: #FFFFFF;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.track-support-card h4 {
+  margin: 0 0 6px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  color: #FEF5A7;
+}
+
+.track-support-card p {
+  font-size: 0.82rem;
+  color: #D3C5C4;
+  margin: 0 0 14px;
+}
+
+.track-support-wa-btn {
+  display: inline-block;
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+.track-support-wa-btn:hover {
+  background: #1EBE5D;
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+  .timeline-stepper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .timeline-step:not(:last-child)::after {
+    display: none;
+  }
+  .track-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .track-order-summary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .track-status-pill-wrap {
+    align-items: flex-start;
+  }
+  .timeline-stepper {
+    grid-template-columns: 1fr;
+  }
+}

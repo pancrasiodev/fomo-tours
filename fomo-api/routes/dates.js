@@ -1,9 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const { getDatesByPackage, addDate, updateDate, deleteDate } = require('../controllers/datesController')
+const {
+  getAllDates,
+  getDatesByPackage,
+  addDate,
+  updateDate,
+  deleteDate,
+} = require('../controllers/datesController')
 const { authMiddleware } = require('../middleware/auth')
 
 // Public
+router.get('/', getAllDates)
 router.get('/:package_id', getDatesByPackage)
 
 // Admin

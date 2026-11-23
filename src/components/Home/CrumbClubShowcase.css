@@ -1,0 +1,203 @@
+/* CRUMB CLUB INNER HERO SHOWCASE */
+.crumb-showcase-section {
+  width: 100%;
+  background-color: #174ECC;
+  background-image: radial-gradient(circle at 50% 30%, #205DF0 0%, #1546BE 80%);
+  position: relative;
+  overflow: hidden;
+  padding: 56px 36px 44px;
+  box-sizing: border-box;
+}
+
+.crumb-showcase-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Headline */
+.crumb-title-block {
+  position: relative;
+  z-index: 5;
+  max-width: 480px;
+}
+
+.crumb-headline {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 4.5rem);
+  font-weight: 900;
+  color: #FFFDF9;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(10, 30, 90, 0.35);
+}
+
+/* Doodle Sticker */
+.crumb-doodle-wrap {
+  position: absolute;
+  top: 48%;
+  left: 6%;
+  transform: translateY(-50%);
+  z-index: 6;
+  animation: floatDoodle 4s ease-in-out infinite alternate;
+}
+
+.crumb-doodle-img {
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(10, 30, 90, 0.4));
+}
+
+/* Centerpiece Visual */
+.crumb-center-visual {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -46%);
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
+
+.crumb-centerpiece-img {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(8, 24, 80, 0.45));
+}
+
+.crumb-ribbon-loop {
+  position: absolute;
+  z-index: 5;
+  width: 140%;
+  max-width: 760px;
+  height: auto;
+  pointer-events: none;
+  transform: translate(-2%, 4%) rotate(-2deg);
+  filter: drop-shadow(0 8px 16px rgba(10, 30, 90, 0.3));
+}
+
+/* Sticker Badge */
+.crumb-badge-wrap {
+  position: absolute;
+  top: 14%;
+  right: 6%;
+  z-index: 6;
+  animation: floatBadge 3.5s ease-in-out infinite alternate;
+}
+
+.crumb-sticker-badge {
+  width: 130px;
+  height: auto;
+  filter: drop-shadow(0 10px 24px rgba(10, 30, 90, 0.45));
+  transform: rotate(8deg);
+  transition: transform 0.3s ease;
+}
+
+.crumb-sticker-badge:hover {
+  transform: rotate(0deg) scale(1.08);
+}
+
+/* Bottom Bar */
+.crumb-bottom-bar {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 320px;
+  flex-wrap: wrap;
+}
+
+.crumb-explore-pill-btn {
+  background-color: #EDFA84;
+  color: #174ECC;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(10, 30, 90, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid transparent;
+}
+
+.crumb-explore-pill-btn:hover {
+  background-color: #F7FFAE;
+  transform: translateY(-2px) scale(1.03);
+  color: #133FA6;
+  box-shadow: 0 8px 24px rgba(10, 30, 90, 0.35);
+}
+
+.crumb-bottom-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFDF9;
+  max-width: 420px;
+  line-height: 1.45;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(10, 30, 90, 0.4);
+}
+
+@keyframes floatDoodle {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-54%) rotate(-4deg); }
+}
+
+@keyframes floatBadge {
+  0% { transform: rotate(8deg) translateY(0); }
+  100% { transform: rotate(12deg) translateY(-6px); }
+}
+
+@media (max-width: 991px) {
+  .crumb-showcase-section {
+    padding: 40px 24px 32px;
+  }
+  .crumb-headline {
+    font-size: 2.5rem;
+  }
+  .crumb-center-visual {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 40px auto;
+  }
+  .crumb-bottom-bar {
+    margin-top: 0;
+  }
+  .crumb-doodle-wrap {
+    display: none;
+  }
+  .crumb-badge-wrap {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .crumb-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .crumb-sticker-badge {
+    width: 95px;
+  }
+}

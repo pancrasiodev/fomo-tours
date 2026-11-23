@@ -1,0 +1,733 @@
+/* ==========================================================================
+   Our Best Seller Section - Dusty Rose Theme with 3D Turntable Cakes
+   - Background: #E6AEB9 (Dusty Rose Pink)
+   - Typography: #6B1C2C (Deep Berry Burgundy)
+   - Yellow highlight stripe on "FRESH FROM THE OVEN."
+   - 3D Revolving Turntables (cakes in round motion)
+   - Sunny yellow price pills (#F7CF0C)
+   - Auto-moving continuous smooth carousel (stills on hover)
+   ========================================================================== */
+
+.lany-bestseller-section {
+  position: relative;
+  width: 100%;
+  background-color: #E6AEB9;
+  color: #6B1C2C;
+  padding: 68px 0 88px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Header Row with Yellow Stripe
+   -------------------------------------------------------------------------- */
+.bestseller-header-row {
+  max-width: 1440px;
+  margin: 0 auto 48px;
+  padding: 0 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.bestseller-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.bestseller-kicker {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6B1C2C;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.bestseller-main-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #6B1C2C;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bestseller-title-line {
+  display: block;
+}
+
+.bestseller-title-line.highlight-strip {
+  display: block;
+}
+
+.bestseller-meta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  max-width: 320px;
+}
+
+.bestseller-meta-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6B1C2C;
+  line-height: 1.45;
+  text-align: right;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Auto-Moving Carousel Track (Continuous Smooth Drift, Stills on Hover)
+   -------------------------------------------------------------------------- */
+.bestseller-track-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 16px 0 28px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: grab;
+}
+
+.bestseller-track-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Soft edge fade masks */
+.bestseller-track-wrapper::before,
+.bestseller-track-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.bestseller-track-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, #E6AEB9 0%, rgba(230, 174, 185, 0) 100%);
+}
+
+.bestseller-track-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, #E6AEB9 0%, rgba(230, 174, 185, 0) 100%);
+}
+
+.bestseller-cards-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  width: max-content;
+  will-change: transform;
+  /* 42s delivers a continuous, luxurious slow gliding drift */
+  animation: bestsellerMarquee 42s linear infinite;
+}
+
+/* STILLS ON HOVER OR ACTIVE TOUCH */
+.bestseller-track-wrapper:hover .bestseller-cards-row,
+.bestseller-track-wrapper.is-paused .bestseller-cards-row,
+.bestseller-cards-row:hover,
+.bestseller-cards-row:focus-within {
+  animation-play-state: paused !important;
+}
+
+@keyframes bestsellerMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bestseller-cards-row {
+    animation: none;
+  }
+  .bestseller-track-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Bestseller Card
+   -------------------------------------------------------------------------- */
+.bestseller-card {
+  width: 300px;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 8, 13, 0.08);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(65, 15, 25, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+}
+
+.bestseller-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(65, 15, 25, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   3D Staged Real Cake Photography (Transparent Cutout)
+   -------------------------------------------------------------------------- */
+.real-cake-3d-stage {
+  position: relative;
+  width: 100%;
+  height: 248px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.cake-3d-perspective-box {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.real-cake-photo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(65, 15, 25, 0.22));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  pointer-events: none;
+}
+
+.real-cake-3d-stage:hover .real-cake-photo {
+  transform: translateY(-8px) scale(1.04);
+}
+
+/* Realistic Soft Contact Drop Shadow on Dusty Rose */
+.real-cake-contact-shadow {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  margin-left: -110px;
+  width: 220px;
+  height: 38px;
+  background: radial-gradient(ellipse at center, rgba(75, 18, 30, 0.38) 0%, rgba(75, 18, 30, 0.12) 55%, rgba(75, 18, 30, 0) 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.real-cake-3d-stage:hover .real-cake-contact-shadow {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.modal-thumb-wrap {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-cake-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+}
+
+/* --------------------------------------------------------------------------
+   Information Block Below Floating Turntable
+   -------------------------------------------------------------------------- */
+.bestseller-info-block {
+  padding: 12px 2px 2px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bestseller-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bestseller-card-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #24080D;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.bestseller-price-text {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #24080D;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.bestseller-add-cart-btn {
+  display: block;
+  width: 100%;
+  background: #65534D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bestseller-card:hover .bestseller-add-cart-btn,
+.bestseller-add-cart-btn:hover {
+  background: #821B1D;
+}
+
+.bestseller-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bestseller-add-cart-btn.is-added {
+  background: #1B5E20;
+}
+
+.bestseller-buy-now-btn {
+  display: block;
+  width: 100%;
+  background: #621927;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bestseller-buy-now-btn:hover {
+  background: #821B1D;
+}
+
+/* --------------------------------------------------------------------------
+   Order Modal
+   -------------------------------------------------------------------------- */
+.bestseller-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 8, 14, 0.68);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+.bestseller-modal-card {
+  position: relative;
+  background: #FAF4ED;
+  border-radius: 24px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 28px 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bestseller-modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bestseller-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(36, 20, 17, 0.2);
+  border-radius: 9999px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  color: #2D1A16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.modal-top-preview {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-thumb-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid rgba(36, 20, 17, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.modal-cake-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.modal-title-area {
+  flex: 1;
+}
+
+.modal-price-pill {
+  display: inline-block;
+  background: #F7CF0C;
+  color: #2D1400;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  margin-bottom: 4px;
+}
+
+.modal-cake-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #192336;
+  margin: 0 0 3px;
+  line-height: 1.2;
+}
+
+.modal-ksh-tag {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  color: #6B1C2C;
+  font-size: 0.92rem;
+}
+
+.modal-form-divider {
+  height: 1px;
+  background: rgba(36, 20, 17, 0.1);
+  margin-bottom: 16px;
+}
+
+/* Fields Stack */
+.modal-fields-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.modal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-label {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #4A3B32;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.modal-text-input,
+.modal-select-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 20, 17, 0.16);
+  background: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  color: #241411;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-text-input:focus,
+.modal-select-input:focus {
+  outline: none;
+  border-color: #6B1C2C;
+  box-shadow: 0 0 0 3px rgba(107, 28, 44, 0.1);
+}
+
+.modal-fulfillment-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.modal-fulfill-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(36, 20, 17, 0.14);
+  background: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #5A4840;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-fulfill-btn.active {
+  background: #6B1C2C;
+  color: #FFFFFF;
+  border-color: #6B1C2C;
+}
+
+.modal-error-banner {
+  background: #FEECEB;
+  color: #D32F2F;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.modal-action-row {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-order-now-btn {
+  flex: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 18px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+}
+
+.modal-order-now-btn:hover {
+  background: #20BD5A;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+.modal-cart-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: #6B1C2C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.modal-cart-btn:hover {
+  background: #501320;
+  transform: translateY(-1px);
+}
+
+/* Success View */
+.modal-success-view {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.modal-success-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: #E6F4EA;
+  color: #137333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.modal-success-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  color: #192336;
+  margin: 0 0 8px;
+}
+
+.modal-success-ref {
+  font-size: 1.05rem;
+  color: #6B1C2C;
+  margin: 0 0 12px;
+}
+
+.modal-success-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  color: #5A6578;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.modal-success-close-btn {
+  background: #6B1C2C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 28px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: background 0.2s ease;
+}
+
+.modal-success-close-btn:hover {
+  background: #501320;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .bestseller-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 24px 32px;
+  }
+
+  .bestseller-meta-wrap {
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .bestseller-meta-text {
+    text-align: left;
+  }
+
+  .bestseller-card {
+    width: 260px;
+  }
+
+  .turntable-3d-stage {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lany-bestseller-section {
+    padding: 48px 0 60px;
+  }
+  
+  .bestseller-header-row {
+    padding: 0 16px 24px;
+  }
+
+  .modal-action-row {
+    flex-direction: column;
+  }
+}

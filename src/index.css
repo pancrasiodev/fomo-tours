@@ -1,6 +1,7 @@
 :root {
   --font-sans: 'Manrope', system-ui, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Luckiest Guy', cursive;
+  --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -11,12 +12,27 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
+  background: #FFFDF9;
+  color: #211613;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+}
+
+p {
   margin: 0;
 }
 
@@ -25,4 +41,28 @@ h1, h2, h3, h4, h5, h6, p {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+}
+
+.route-shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Scrollbar aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9C9BC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D43859;
 }

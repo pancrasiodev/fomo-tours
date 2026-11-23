@@ -2,23 +2,30 @@ const express = require('express')
 const router = express.Router()
 const {
   upload,
+  uploadBento,
   getAllPackages,
   getAllPackagesAdmin,
   getPackageBySlug,
+  upsertPackage,
+  updatePackageStatus,
   createPackage,
   updatePackage,
   deletePackage,
   addItineraryDay,
-  deleteItineraryDay
+  deleteItineraryDay,
 } = require('../controllers/packagesController')
 const { authMiddleware } = require('../middleware/auth')
+
+// Admin list before :slug
+router.get('/admin/all', authMiddleware, getAllPackagesAdmin)
 
 // Public
 router.get('/', getAllPackages)
 router.get('/:slug', getPackageBySlug)
 
-// Admin
-router.get('/admin/all', authMiddleware, getAllPackagesAdmin)
+// Admin mutations
+router.post('/upsert', authMiddleware, uploadBento, upsertPackage)
+router.patch('/:id/status', authMiddleware, updatePackageStatus)
 router.post('/', authMiddleware, upload.single('cover_image'), createPackage)
 router.put('/:id', authMiddleware, upload.single('cover_image'), updatePackage)
 router.delete('/:id', authMiddleware, deletePackage)

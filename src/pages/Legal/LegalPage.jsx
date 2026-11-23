@@ -1,6 +1,13 @@
+import { usePageSeo } from '../../utils/seo.jsx'
 import './LegalPage.css'
 
 export default function LegalPage({ title, updated, sections }) {
+  usePageSeo({
+    title: `${title} | FOMO Tours Kenya`,
+    description: `Official FOMO Tours ${title}. Read our transparent booking, safari operation, and customer data terms in Nairobi, Kenya.`,
+    canonicalPath: typeof window !== 'undefined' ? window.location.pathname : '',
+  })
+
   return (
     <div className="legal-page">
       <div className="legal-hero">

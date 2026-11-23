@@ -1,0 +1,1838 @@
+/* ==========================================================================
+   CUSTOM CAKE ORDER - MAGIC MOVERS FORM PROCESS (LANY BAKERY VIBE)
+   Interactive 4-Step Configurator with Sticky Live Summary Sidebar
+   Theme: Lany Signature Dark Chocolate (#24080D)
+   Cards: Clean Minimal Layout (Title + Select Button Only)
+   Extras: Visual Cards with Real Photography
+   Flavors: Combinable multi-flavor selection with banner note
+   Submit: Single clean unified button sending details to WhatsApp
+   Containers: Completely borderless sleek modern styling
+   ========================================================================== */
+
+.custom-order-app {
+  background-color: #24080D;
+  min-height: 100vh;
+  color: #FFFFFF;
+  padding-top: 100px;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Main 2-Column Split Layout
+   -------------------------------------------------------------------------- */
+.custom-app-layout {
+  padding: 36px 0 80px;
+}
+
+.custom-app-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 36px;
+  align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Active Step Header & Views
+   Borderless Dark Chocolate Container
+   -------------------------------------------------------------------------- */
+.custom-app-main-col {
+  background: #2E0B11;
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  padding: 36px 40px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Top Interactive Stepper Breadcrumbs
+   -------------------------------------------------------------------------- */
+.stepper-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.stepper-breadcrumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.stepper-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stepper-progress-track {
+  flex: 1;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.stepper-progress-fill {
+  height: 100%;
+  background: #FEF5A7;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.stepper-progress-pct {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  min-width: 38px;
+  text-align: right;
+}
+
+.stepper-crumb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.stepper-crumb-btn:hover {
+  background: rgba(254, 245, 167, 0.08);
+}
+
+.crumb-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.crumb-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.stepper-crumb-btn.active {
+  background: rgba(254, 245, 167, 0.14);
+}
+
+.stepper-crumb-btn.active .crumb-num {
+  background: #FEF5A7;
+  color: #24080D;
+}
+
+.stepper-crumb-btn.active .crumb-title {
+  color: #FEF5A7;
+  font-weight: 800;
+}
+
+.stepper-crumb-btn.passed .crumb-num {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.stepper-crumb-btn.passed .crumb-title {
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   Booking Success Card
+   -------------------------------------------------------------------------- */
+.booking-success-card {
+  background: #180407;
+  border: none;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.success-content {
+  flex: 1;
+}
+
+.success-badge {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #25D366;
+  background: rgba(37, 211, 102, 0.16);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.success-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+}
+
+.success-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.success-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.success-wa-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.success-wa-btn:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+}
+
+.success-reset-btn {
+  background: none;
+  border: 1px solid rgba(254, 245, 167, 0.3);
+  color: #FEF5A7;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.success-reset-btn:hover {
+  background: rgba(254, 245, 167, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Step View Header
+   -------------------------------------------------------------------------- */
+.step-tracker-label {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FEF5A7;
+  margin-bottom: 8px;
+}
+
+.step-view-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.step-view-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 32px;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Step 1: Visual Option Cards Grid (Magic Movers 3-column)
+   Clean Minimal Layout: Photo, Title, Select Button Only
+   -------------------------------------------------------------------------- */
+.options-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.option-choice-card {
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.15);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s ease, 
+              border-color 0.25s ease;
+}
+
+.option-choice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+  border-color: rgba(254, 245, 167, 0.5);
+}
+
+.option-choice-card.selected {
+  border: 2px solid #FEF5A7;
+  background-color: #380D15;
+  box-shadow: 0 14px 36px rgba(254, 245, 167, 0.2);
+}
+
+.choice-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #140306;
+}
+
+.choice-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.option-choice-card:hover .choice-card-img {
+  transform: scale(1.05);
+}
+
+.choice-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.badge-popular {
+  background: #FEF5A7;
+  color: #24080D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.badge-trending {
+  background: #EEA0BA;
+  color: #24080D;
+}
+
+.badge-luxury {
+  background: #24080D;
+  color: #FEF5A7;
+  border: 1px solid rgba(254, 245, 167, 0.4);
+}
+
+.badge-pastel {
+  background: #FFFFFF;
+  color: #24080D;
+}
+
+.badge-party {
+  background: #621927;
+  color: #FEF5A7;
+}
+
+.badge-milestone {
+  background: #FAF7F2;
+  color: #24080D;
+}
+
+.badge-bespoke {
+  background: linear-gradient(135deg, #FEF5A7, #EEA0BA);
+  color: #24080D;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Body: Title + Button Only (Magic Movers clean layout) */
+.choice-card-body {
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1;
+}
+
+.choice-card-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.choice-action-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 11px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.choice-action-btn:hover {
+  background: rgba(254, 245, 167, 0.15);
+  border-color: #FEF5A7;
+  color: #FEF5A7;
+}
+
+.choice-action-btn.btn-selected {
+  background: #FEF5A7;
+  color: #24080D;
+  border-color: #FEF5A7;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(254, 245, 167, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   "Other" Option Dynamic Input Wrappers
+   -------------------------------------------------------------------------- */
+.other-option-input-wrap {
+  background: #1C060A;
+  border: none;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.other-input-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FEF5A7;
+  margin-bottom: 10px;
+}
+
+.sparkle-icon {
+  color: #FEF5A7;
+}
+
+.form-text-input.highlight-field {
+  background: #120305;
+  border: 1.5px solid #FEF5A7;
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(254, 245, 167, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Step Subblocks & Shared Form Elements (Borderless)
+   -------------------------------------------------------------------------- */
+.step-subblock {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: none;
+}
+
+.step-subblock:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.subblock-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.subblock-heading {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.subblock-badge {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #FEF5A7;
+  background: rgba(254, 245, 167, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.subblock-badge.highlight-badge {
+  background: rgba(254, 245, 167, 0.2);
+  color: #FEF5A7;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Flavor Combinable Banner (Step 2)
+   -------------------------------------------------------------------------- */
+.flavor-combine-banner {
+  background: rgba(254, 245, 167, 0.1);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.flavor-sparkle-icon {
+  color: #FEF5A7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.combine-title {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  margin-bottom: 3px;
+}
+
+.combine-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.combo-check-wrap {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FEF5A7;
+  color: #24080D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Size Choices Grid */
+.size-choices-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.size-choice-card {
+  position: relative;
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.15);
+  border-radius: 14px;
+  padding: 16px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.size-choice-card:hover {
+  border-color: rgba(254, 245, 167, 0.5);
+  background: #25080E;
+}
+
+.size-choice-card.selected {
+  border: 2px solid #FEF5A7;
+  background: #380D15;
+  box-shadow: 0 6px 20px rgba(254, 245, 167, 0.18);
+}
+
+.size-pop-badge {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  background: #FEF5A7;
+  color: #24080D;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.size-weight-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.size-weight {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.size-portion-pill {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #FEF5A7;
+}
+
+.size-servings {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+/* Flavor Pills Grid */
+.flavor-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.flavor-pill-card {
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.flavor-pill-card:hover {
+  border-color: rgba(254, 245, 167, 0.5);
+  background: #25080E;
+}
+
+.flavor-pill-card.selected {
+  border: 2px solid #FEF5A7;
+  background: #380D15;
+}
+
+.flavor-combine-note {
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(254, 245, 167, 0.9);
+}
+
+.flavor-pill-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.flavor-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(254, 245, 167, 0.45);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #24080D;
+  transition: all 0.15s ease;
+}
+
+.flavor-checkbox.checked {
+  background: #FEF5A7;
+  border-color: #FEF5A7;
+}
+
+.flavor-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.flavor-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Pills Compact Row */
+.pills-compact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill-toggle-btn {
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.18);
+  color: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.pill-toggle-btn:hover {
+  border-color: #FEF5A7;
+  background: #25080E;
+  color: #FEF5A7;
+}
+
+.pill-toggle-btn.active {
+  background: #FEF5A7;
+  color: #24080D;
+  border-color: #FEF5A7;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Step 3: Personalization & Inscription
+   -------------------------------------------------------------------------- */
+.no-inscription-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.no-inscription-toggle input {
+  accent-color: #FEF5A7;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.clean-design-notice {
+  background: #1C060A;
+  border: 1px dashed rgba(254, 245, 167, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: #FEF5A7;
+}
+
+.input-with-counter {
+  position: relative;
+}
+
+.form-text-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(254, 245, 167, 0.25);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  background: #120305;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-text-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form-text-input:focus {
+  border-color: #FEF5A7;
+}
+
+.char-counter {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #FEF5A7;
+  background: #24080D;
+  padding: 2px 8px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.form-textarea-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(254, 245, 167, 0.25);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+  background: #120305;
+  box-sizing: border-box;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.form-textarea-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form-textarea-input:focus {
+  border-color: #FEF5A7;
+}
+
+/* --------------------------------------------------------------------------
+   Step 3: Visual Celebration Extras Cards (Real Photography)
+   -------------------------------------------------------------------------- */
+.extras-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.extra-visual-card {
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.extra-visual-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(254, 245, 167, 0.5);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.extra-visual-card.selected {
+  border: 2px solid #FEF5A7;
+  background: #380D15;
+  box-shadow: 0 12px 28px rgba(254, 245, 167, 0.2);
+}
+
+.extra-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  background: #120305;
+}
+
+.extra-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.extra-visual-card:hover .extra-card-img {
+  transform: scale(1.05);
+}
+
+.extra-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+}
+
+.extra-card-badge.badge-checked {
+  background: #FEF5A7;
+  color: #24080D;
+}
+
+.extra-card-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 1;
+}
+
+.extra-card-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* File Upload Dropzone */
+.file-upload-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  border: 2px dashed rgba(254, 245, 167, 0.35);
+  border-radius: 14px;
+  background: #1C060A;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.file-upload-dropzone:hover {
+  background: #25080E;
+  border-color: #FEF5A7;
+}
+
+.upload-icon {
+  color: #FEF5A7;
+  margin-bottom: 8px;
+}
+
+.upload-text {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  margin-bottom: 4px;
+}
+
+.upload-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.file-hidden-input {
+  display: none;
+}
+
+.uploaded-preview-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #380D15;
+  border: 1.5px solid #FEF5A7;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.preview-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.preview-meta {
+  flex: 1;
+}
+
+.preview-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.preview-hint {
+  font-size: 0.78rem;
+  color: rgba(254, 245, 167, 0.8);
+  margin: 2px 0 0;
+}
+
+.preview-remove-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.preview-remove-btn:hover {
+  background: rgba(254, 245, 167, 0.15);
+  color: #FEF5A7;
+}
+
+/* --------------------------------------------------------------------------
+   Step 4: Fulfillment & Schedule
+   -------------------------------------------------------------------------- */
+.fulfillment-toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.fulfill-btn {
+  background: #1C060A;
+  border: 1.5px solid rgba(254, 245, 167, 0.18);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.fulfill-btn:hover {
+  border-color: #FEF5A7;
+  background: #25080E;
+  color: #FEF5A7;
+}
+
+.fulfill-btn.active {
+  border-color: #FEF5A7;
+  background: #FEF5A7;
+  color: #24080D;
+  font-weight: 800;
+}
+
+.form-select-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(254, 245, 167, 0.25);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  background: #120305;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-select-input:focus {
+  border-color: #FEF5A7;
+}
+
+.schedule-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FEF5A7;
+}
+
+/* Custom Quote Information Card */
+.custom-quote-info-card {
+  background: #180407;
+  border-radius: 16px;
+  padding: 24px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.quote-info-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.quote-sparkle {
+  color: #FEF5A7;
+}
+
+.quote-info-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FEF5A7;
+}
+
+.quote-info-body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.quote-steps-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.mini-step {
+  background: rgba(254, 245, 167, 0.06);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-step-num {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #FEF5A7;
+}
+
+.mini-step-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   Single Unified Submit Request Button
+   -------------------------------------------------------------------------- */
+.single-submit-wrap {
+  margin-top: 24px;
+}
+
+.action-btn-submit-main {
+  width: 100%;
+  background: #FEF5A7;
+  color: #24080D;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 18px 24px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(254, 245, 167, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-btn-submit-main:hover:not(:disabled) {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(254, 245, 167, 0.45);
+}
+
+.action-btn-submit-main:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.final-guarantee-note {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 14px 0 0;
+}
+
+/* Bottom Stepper Navigation Bar */
+.step-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: none;
+}
+
+.nav-back-btn {
+  background: none;
+  border: 1.5px solid rgba(254, 245, 167, 0.3);
+  color: #FEF5A7;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-back-btn:hover {
+  background: rgba(254, 245, 167, 0.12);
+}
+
+.nav-forward-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.next-step-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+.nav-continue-btn {
+  background: #FEF5A7;
+  color: #24080D;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-continue-btn:hover:not(:disabled) {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(254, 245, 167, 0.35);
+}
+
+.nav-continue-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: Sticky Quick Configurator Sidebar (Borderless)
+   -------------------------------------------------------------------------- */
+.custom-app-sidebar-col {
+  position: relative;
+}
+
+.quick-configurator-card {
+  position: sticky;
+  top: 90px;
+  background: #2E0B11;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  padding: 28px 24px;
+}
+
+.config-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.config-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FEF5A7;
+}
+
+.config-step-pill {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  background: rgba(254, 245, 167, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.config-main-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  letter-spacing: -0.015em;
+}
+
+.config-main-sub {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+/* Vertical Steps List */
+.config-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.config-step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(254, 245, 167, 0.12);
+  background: #1C060A;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.config-step-item:hover {
+  border-color: rgba(254, 245, 167, 0.4);
+}
+
+.config-step-item.active {
+  border: 2px solid #FEF5A7;
+  background: #380D15;
+  box-shadow: 0 4px 14px rgba(254, 245, 167, 0.15);
+}
+
+.config-step-item.completed {
+  background: #25080E;
+  border-color: rgba(254, 245, 167, 0.2);
+}
+
+.step-pill-badge {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #120305;
+  color: #FEF5A7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.config-step-item.active .step-pill-badge {
+  background: #FEF5A7;
+  color: #24080D;
+}
+
+.step-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.step-summary {
+  font-size: 0.76rem;
+  color: #FEF5A7;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.step-done-icon {
+  color: #25D366;
+  flex-shrink: 0;
+}
+
+/* Pricing & Quote Status Box in Sidebar (Borderless) */
+.config-quote-status-box {
+  background: #180407;
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: center;
+  margin: 18px 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.quote-status-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #EEA0BA;
+  text-transform: uppercase;
+}
+
+.quote-status-value {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  line-height: 1.15;
+}
+
+.quote-status-guarantee {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+}
+
+/* Sidebar Bottom Action */
+.config-sidebar-action {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-action-hint {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  text-align: center;
+}
+
+.sidebar-continue-btn {
+  background: #FEF5A7;
+  color: #24080D;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 13px 20px;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-continue-btn:hover:not(:disabled) {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 245, 167, 0.35);
+}
+
+.sidebar-continue-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sidebar-confirm-btn {
+  background: #FEF5A7;
+  color: #24080D;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 14px 20px;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(254, 245, 167, 0.3);
+}
+
+.sidebar-confirm-btn:hover:not(:disabled) {
+  background: #FFF9C4;
+  transform: translateY(-2px);
+}
+
+.sidebar-confirm-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .custom-app-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .custom-app-sidebar-col {
+    display: none;
+  }
+
+  .options-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .extras-visual-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .size-choices-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .size-choices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quote-steps-mini {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .custom-order-app {
+    padding-top: 84px;
+  }
+
+  .custom-app-layout {
+    padding: 16px 0 48px;
+  }
+
+  .custom-app-container {
+    padding: 0 12px;
+    gap: 20px;
+  }
+
+  .custom-app-main-col {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+
+  .stepper-breadcrumbs {
+    gap: 4px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+  }
+
+  .stepper-crumb-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
+  .step-view-title {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  .options-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .extras-visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flavor-pills-grid,
+  .fulfillment-toggle-row,
+  .schedule-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .size-choices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .next-step-hint,
+  .sidebar-action-hint {
+    display: none;
+  }
+}
+
+/* Custom Order Size Stepper */
+.custom-size-stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.custom-size-stepper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 6px 10px;
+  min-width: 210px;
+}
+
+.custom-size-stepper button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(254, 245, 167, 0.16);
+  color: #FEF5A7;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.custom-size-stepper button:hover:not(:disabled) {
+  background: #FEF5A7;
+  color: #24080D;
+}
+
+.custom-size-stepper button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.custom-size-stepper span {
+  font-family: 'Fredoka', 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.custom-size-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.custom-size-meta strong {
+  color: #FEF5A7;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.custom-size-meta span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 580px) {
+  .custom-size-stepper-row {
+    gap: 10px;
+  }
+  .custom-size-stepper {
+    flex: 1;
+    min-width: 170px;
+  }
+  .custom-size-meta {
+    align-items: flex-end;
+    text-align: right;
+  }
+  .custom-slot-pills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Step 4 Styled Date Picker & Time Slot Pills */
+.custom-schedule-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.custom-date-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-date-icon {
+  position: absolute;
+  left: 14px;
+  color: #FEF5A7;
+  pointer-events: none;
+}
+
+.form-text-input.custom-date-input {
+  padding-left: 42px;
+  color-scheme: dark;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-text-input.custom-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(93%) sepia(24%) saturate(650%) hue-rotate(4deg) brightness(105%) contrast(98%);
+  cursor: pointer;
+}
+
+.custom-slot-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-slot-icon {
+  position: absolute;
+  left: 14px;
+  color: #FEF5A7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form-select-input.custom-slot-select {
+  width: 100%;
+  padding-left: 42px;
+  padding-right: 36px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.custom-slot-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.custom-slot-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(254, 245, 167, 0.22);
+  background: #1C060A;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+
+.custom-slot-pill-btn:hover {
+  background: #25080E;
+  border-color: rgba(254, 245, 167, 0.55);
+}
+
+.custom-slot-pill-btn.active {
+  background: #FEF5A7;
+  border-color: #FEF5A7;
+  color: #24080D;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(254, 245, 167, 0.28);
+}

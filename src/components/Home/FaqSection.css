@@ -1,0 +1,186 @@
+/* Framer FAQ Section - "Fresh Answers, Just Like Our Bakes" */
+.lany-faq-section {
+  background-color: #FAF7F2;
+  padding: 96px 0 120px;
+  position: relative;
+}
+
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header pill: ( FAQ ) */
+.faq-header-center {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.faq-framer-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 18px;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #381A14;
+}
+
+.faq-pill-bracket {
+  color: #C0B2A8;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.faq-pill-text {
+  line-height: 1;
+}
+
+/* Display Title */
+.faq-framer-title {
+  margin: 0;
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  color: #2E1410;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+
+/* Unified Framer Card Frame */
+.faq-card-frame {
+  background: #FFFFFF;
+  border: 1px solid #EAE2DB;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(46, 20, 16, 0.04);
+}
+
+/* Row Item with bottom separator */
+.faq-card-row {
+  border-bottom: 1px solid #EAE2DB;
+  transition: background-color 0.2s ease;
+}
+
+.faq-card-row:last-child {
+  border-bottom: none;
+}
+
+/* Trigger Button */
+.faq-row-trigger {
+  width: 100%;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.faq-row-trigger:hover .faq-row-question {
+  color: #4C2219;
+}
+
+.faq-row-question {
+  font-family: 'Fredoka', 'Playfair Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.08rem, 1.28vw, 1.25rem);
+  font-weight: 700;
+  color: #2E1410;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+/* Plus / Minus Icon */
+.faq-toggle-icon {
+  color: #553B33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.faq-card-row.is-open .faq-toggle-icon {
+  color: #2E1410;
+}
+
+/* Answer Content Pane */
+.faq-row-content {
+  padding: 0 28px 24px 28px;
+  animation: faqFadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.faq-row-answer {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.68;
+  color: #5B453E;
+  font-weight: 500;
+}
+
+@keyframes faqFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 680px) {
+  .lany-faq-section {
+    padding: 64px 0 84px;
+  }
+
+  .faq-container {
+    padding: 0 16px;
+  }
+
+  .faq-header-center {
+    margin-bottom: 36px;
+  }
+
+  .faq-framer-title {
+    font-size: 2.1rem;
+  }
+
+  .faq-card-frame {
+    border-radius: 16px;
+  }
+
+  .faq-row-trigger {
+    padding: 20px 20px;
+    gap: 14px;
+  }
+
+  .faq-row-question {
+    font-size: 1.02rem;
+  }
+
+  .faq-row-content {
+    padding: 0 20px 20px 20px;
+  }
+
+  .faq-row-answer {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}

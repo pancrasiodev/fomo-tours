@@ -1,307 +1,312 @@
-.hero {
-  position: relative;
+/* ==========================================================================
+   LANY CAKE SHOP - EDITORIAL FRAMED HERO
+   Inspired by Framer Moka Inset Frame & Cake Showcase
+   ========================================================================== */
+
+/* Outer Frame: Full bleed edge-to-edge hero */
+.lany-hero-outer-frame {
   width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  color: var(--color-white);
-  transition: background-image 0.5s ease;
-  padding-top: 140px;
-  padding-bottom: 80px;
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.1) 30%,
-    rgba(0, 0, 0, 0.15) 50%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
-  z-index: 0;
-}
-
-.hero__top {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding-inline: clamp(32px, 6vw, 100px);
-  padding-top: var(--space-16);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.hero__badge {
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: var(--radius-full);
-  padding: 8px 20px;
-  font-size: var(--text-sm);
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.hero__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.2rem, 5.2vw, 4.6rem);
-  letter-spacing: 0.01em;
-  line-height: 1.15;
-  transition: opacity 0.4s ease;
-}
-
-.hero__title em {
-  font-style: normal;
-}
-
-.hero__bottom {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding-inline: clamp(32px, 6vw, 100px);
-  padding-block: var(--space-8) var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.hero__bottom-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-8);
-  flex-wrap: wrap;
-}
-
-.hero__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  max-width: 300px;
-}
-
-.hero__info h3 {
-  font-size: var(--text-lg);
-  font-weight: 600;
-}
-
-.hero__date {
-  font-size: var(--text-sm);
-  opacity: 0.8;
-}
-
-.hero__avatars {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-xs);
-  opacity: 0.9;
-  margin: var(--space-1) 0;
-}
-
-.hero__avatar-stack {
-  display: flex;
-}
-
-.hero__avatar {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid var(--color-dark);
-  background-size: cover;
-  background-position: center;
-  margin-left: -8px;
-}
-
-.hero__avatar:first-child {
-  margin-left: 0;
-}
-
-.hero__avatar--count {
-  background: var(--color-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.hero__desc {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  opacity: 0.85;
-  margin: var(--space-2) 0;
-}
-
-.hero__actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.hero__cta {
-  background: var(--color-white);
-  color: var(--color-dark);
-  border: none;
-  border-radius: var(--radius-full);
-  padding: 12px 26px;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform var(--transition-fast);
-}
-
-.hero__cta:hover {
-  transform: translateY(-2px);
-}
-
-.hero__cta-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: transparent;
-  color: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background var(--transition-fast);
-}
-
-.hero__cta-icon:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Filmstrip */
-.hero__filmstrip {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.hero__filmstrip::-webkit-scrollbar {
-  display: none;
-}
-
-.hero__strip-card {
-  flex-shrink: 0;
-  width: 130px;
-  height: 170px;
-  border-radius: var(--radius-md);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  border: none;
   padding: 0;
-  cursor: pointer;
-  transition: transform var(--transition-fast), filter var(--transition-fast);
+  margin: 0;
+  background: transparent;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.hero__strip-card:hover {
-  transform: scale(1.03);
-  filter: brightness(1.1);
-}
-
-.hero__strip-card--main {
-  width: 260px;
-  height: 260px;
-}
-
-.hero__strip-body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-3);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-2);
-  text-align: left;
-}
-
-.hero__strip-text h4 {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.hero__strip-text p {
-  font-size: 11px;
-  opacity: 0.8;
-  line-height: 1.4;
-}
-
-.hero__strip-time {
-  font-size: var(--text-xs);
-  opacity: 0.9;
-  flex-shrink: 0;
-}
-
-/* Pagination */
-.hero__pagination {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.hero__page-count {
-  font-size: var(--text-sm);
-  opacity: 0.8;
-  white-space: nowrap;
-}
-
-.hero__page-count strong {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  opacity: 1;
-}
-
-.hero__progress {
-  flex: 1;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-full);
-  max-width: 500px;
-  overflow: hidden;
-}
-
-.hero__progress-fill {
-  display: block;
-  height: 100%;
-  background: var(--color-white);
-  transition: width 0.4s ease;
+@media (min-width: 1200px) {
+  .lany-hero-outer-frame {
+    padding: 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero__bottom-row {
+  .lany-hero-outer-frame {
+    padding: 0;
+  }
+}
+
+/* The Hero Card - Full screen edge-to-edge video canvas */
+.lany-hero-card {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  max-height: 880px;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #1A0706;
+}
+
+@media (max-width: 992px) {
+  .lany-hero-card {
+    border-radius: 0;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+  }
+}
+
+/* Background Artwork / Video Layer */
+.lany-hero-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lany-hero-bg-video,
+.lany-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .lany-hero-bg-video,
+  .lany-hero-bg-img {
+    object-position: center center;
+  }
+}
+
+/* Ambient contrast overlay to ensure white text remains crystal clear */
+.lany-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 7, 6, 0.45) 0%,
+    rgba(22, 7, 6, 0.20) 35%,
+    rgba(22, 7, 6, 0.45) 65%,
+    rgba(18, 5, 4, 0.85) 100%
+  );
+}
+
+/* Foreground Content */
+.lany-hero-content-wrap {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 36px 42px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .lany-hero-content-wrap {
+    padding: 20px 20px 48px;
+  }
+}
+
+/* Bottom Area: Two Columns (Left & Right) */
+.lany-hero-bottom-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 36px;
+  margin-top: auto;
+  padding-top: 180px;
+}
+
+@media (max-width: 992px) {
+  .lany-hero-bottom-area {
     flex-direction: column;
     align-items: flex-start;
+    gap: 22px;
+    padding-top: 96px;
   }
-  .hero__strip-card {
-    width: 100px;
-    height: 130px;
+}
+
+/* Left Column: Social Proof + Title */
+.lany-hero-col-left {
+  max-width: 800px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 5-Star Social Proof Badge */
+.lany-hero-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.lany-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.lany-avatar-img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #FFFFFF;
+  margin-left: -7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  display: block;
+}
+
+.lany-avatar-img:first-child {
+  margin-left: 0;
+}
+
+.lany-rating-text-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.lany-star-symbol {
+  color: #F8B84E;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Large Display Title - Bold Rounded Fredoka Brand Typography */
+.lany-hero-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(4.0rem, 8.2vw, 7.2rem);
+  font-weight: 800;
+  color: #FFFDF9;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin: 0;
+  text-shadow: 0 4px 28px rgba(12, 3, 2, 0.75);
+}
+
+@media (max-width: 768px) {
+  .lany-hero-title {
+    font-size: clamp(2.5rem, 10.2vw, 3.35rem);
+    line-height: 1.04;
   }
-  .hero__strip-card--main {
-    width: 180px;
-    height: 180px;
+}
+
+/* Right Column: Description + Buttons */
+.lany-hero-col-right {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+@media (min-width: 993px) {
+  .lany-hero-col-right {
+    align-items: flex-start;
+    padding-bottom: 6px;
   }
+}
+
+.lany-hero-description {
+  font-size: clamp(0.96rem, 1.25vw, 1.14rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(35, 24, 18, 0.5);
+  max-width: 450px;
+}
+
+/* Dual Pill Buttons Container */
+.lany-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Button 1: Solid White Pill with Brown Icon Circle */
+.lany-btn-order-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  color: #231B15;
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 8px 10px 8px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.lany-btn-order-online:hover {
+  background: #FFF9F2;
+  color: #9C582B;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+.lany-btn-icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #8F694F;
+  color: #FFFFFF;
+  transition: transform 0.25s ease;
+}
+
+.lany-btn-order-online:hover .lany-btn-icon-bubble {
+  background: #73513A;
+  transform: rotate(12deg) scale(1.05);
+}
+
+/* Button 2: Translucent / Frosted Glass Pill with White Border */
+.lany-btn-view-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.78);
+  color: #FFFFFF;
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lany-btn-view-menu:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }

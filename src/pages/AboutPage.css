@@ -1,0 +1,895 @@
+.about-page {
+  padding-bottom: 0;
+}
+
+.about-hero-split {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 88vh;
+  width: 100%;
+  overflow: hidden;
+  background: #24080D;
+}
+
+/* Left Panel */
+.about-hero-left {
+  background: #24080D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 130px 70px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 520px;
+}
+
+.about-hero-blurb {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+  margin: 0 0 40px;
+  font-weight: 500;
+}
+
+/* Social Proof / Rating Badge */
+.about-hero-rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 40px;
+}
+
+.rating-avatars-stack {
+  display: flex;
+  align-items: center;
+}
+
+.rating-avatars-stack img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #24080D;
+  margin-left: -10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rating-avatars-stack img:first-child {
+  margin-left: 0;
+}
+
+.avatar-plus-count {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #EEA0BA;
+  color: #24080D;
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #24080D;
+  margin-left: -8px;
+}
+
+.rating-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rating-stars-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rating-star {
+  color: #FEF5A7;
+  font-size: 1rem;
+}
+
+.rating-score {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.rating-count {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Big Bold Headline */
+.about-hero-headline {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 580px;
+  text-wrap: balance;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Floating Inset Photo (Bridges the Seam) */
+.about-hero-inset-card {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 170px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-hero-inset-card:hover {
+  transform: translate(-50%, -52%) scale(1.03);
+}
+
+.inset-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right Panel: Photography */
+.about-hero-right {
+  position: relative;
+  height: 100%;
+  min-height: 580px;
+  overflow: hidden;
+}
+
+.about-hero-bg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-hero-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(36, 8, 13, 0.3) 0%,
+    rgba(36, 8, 13, 0.05) 50%,
+    rgba(36, 8, 13, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Top-Right Laurel Wreath Badge */
+.about-hero-laurel-badge {
+  position: absolute;
+  top: 112px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: rgba(36, 8, 13, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  z-index: 4;
+}
+
+.laurel-svg {
+  width: 18px;
+  height: 32px;
+  color: #FEF5A7;
+  flex-shrink: 0;
+}
+
+.laurel-badge-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.laurel-since {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+.laurel-city {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  letter-spacing: 0.02em;
+}
+
+/* Bottom-Right Action Button */
+.about-hero-action-wrap {
+  position: absolute;
+  bottom: 40px;
+  right: 48px;
+  z-index: 4;
+}
+
+.about-hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  color: #24080D;
+  padding: 8px 10px 8px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Fredoka', 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+  gap: 14px;
+}
+
+.about-hero-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  background: #FEF5A7;
+}
+
+.cta-arrow-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #24080D;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.about-hero-cta-btn:hover .cta-arrow-box {
+  transform: rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .about-hero-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-hero-left {
+    padding: 60px 24px 40px;
+  }
+
+  .about-hero-inset-card {
+    display: none;
+  }
+
+  .about-hero-right {
+    min-height: 420px;
+  }
+
+  .about-hero-laurel-badge {
+    top: 20px;
+    right: 20px;
+  }
+
+  .about-hero-action-wrap {
+    bottom: 24px;
+    right: 20px;
+  }
+}
+
+/* ==========================================================================
+   MANIFESTO & BENTO SHOWCASE SECTION (BELOW ABOUT HERO)
+   ========================================================================== */
+
+.about-manifesto-section {
+  padding: 110px 0 90px;
+  background: #FFFFFF;
+  position: relative;
+}
+
+.about-manifesto-badge-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.about-manifesto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #24080D;
+  background: #FAF7F2;
+  border: 1px solid rgba(36, 8, 13, 0.08);
+  padding: 6px 18px;
+  border-radius: 999px;
+}
+
+.badge-paren {
+  opacity: 0.45;
+  font-weight: 500;
+}
+
+/* Centered Impact Lead with progressive text fade */
+.about-manifesto-lead {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.6rem, 2.7vw, 2.45rem);
+  font-weight: 900;
+  line-height: 1.42;
+  text-align: center;
+  color: #24080D;
+  max-width: 960px;
+  margin: 0 auto 64px;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.about-manifesto-lead .fade-word-1 {
+  color: rgba(36, 8, 13, 0.72);
+}
+
+.about-manifesto-lead .fade-word-2 {
+  color: rgba(36, 8, 13, 0.5);
+}
+
+.about-manifesto-lead .fade-word-3 {
+  color: rgba(36, 8, 13, 0.28);
+}
+
+/* 3-Column Bento Showcase Grid */
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-bento-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #FFFFFF;
+}
+
+/* Left & Right Image Cards */
+.bento-chef-card,
+.bento-action-card {
+  box-shadow: 0 10px 30px rgba(36, 8, 13, 0.06);
+  border: 1px solid rgba(36, 8, 13, 0.08);
+}
+
+.bento-card-img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.bento-chef-card:hover .bento-card-img,
+.bento-action-card:hover .bento-card-img {
+  transform: scale(1.03);
+}
+
+/* Center 2-Tier Stats Bento Box */
+.bento-stats-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(36, 8, 13, 0.1);
+  box-shadow: 0 10px 30px rgba(36, 8, 13, 0.04);
+}
+
+.bento-stat-main {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 28px;
+  border-bottom: 1px solid rgba(36, 8, 13, 0.08);
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.bento-num {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3rem, 4.4vw, 4.2rem);
+  font-weight: 900;
+  color: #24080D;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.bento-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #7A6968;
+  letter-spacing: 0.02em;
+}
+
+.bento-stat-split-row {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+}
+
+.bento-stat-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  text-align: center;
+}
+
+.bento-stat-sub.divider-left {
+  border-left: 1px solid rgba(36, 8, 13, 0.08);
+}
+
+.bento-sub-num {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+  font-weight: 900;
+  color: #24080D;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.bento-sub-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #7A6968;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive Manifesto & Bento */
+@media (max-width: 960px) {
+  .about-manifesto-section {
+    padding: 60px 0 50px;
+  }
+
+  .about-manifesto-lead {
+    margin-bottom: 40px;
+  }
+
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bento-card-img {
+    min-height: 300px;
+    max-height: 380px;
+  }
+
+  .bento-stat-main {
+    padding: 32px 20px;
+  }
+
+  .bento-stat-sub {
+    padding: 28px 16px;
+  }
+}
+
+.about-content-container {
+  padding-top: 20px;
+}
+
+/* Values / Moka-Style Philosophy */
+.about-philosophy-moka-section {
+  margin-bottom: 88px;
+  position: relative;
+}
+
+.about-philosophy-moka-section .section-header-center {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.about-philosophy-moka-section .section-sub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #24080D;
+  background: rgba(98, 25, 39, 0.06);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.about-philosophy-moka-section .badge-paren {
+  color: #9E8588;
+  font-weight: 400;
+}
+
+.about-philosophy-moka-section .section-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 800;
+  color: #24080D;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+
+.philosophy-section-sub {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  color: #6C5A5B;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* 4-Card Moka Grid Wrapper with Left & Right Edge Fades */
+.philosophy-moka-grid-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.philosophy-edge-fade {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: clamp(28px, 4.5vw, 68px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.philosophy-edge-fade-left {
+  left: -2px;
+  background: linear-gradient(to right, rgba(255, 253, 249, 0.98) 0%, rgba(255, 253, 249, 0.65) 45%, rgba(255, 253, 249, 0) 100%);
+}
+
+.philosophy-edge-fade-right {
+  right: -2px;
+  background: linear-gradient(to left, rgba(255, 253, 249, 0.98) 0%, rgba(255, 253, 249, 0.65) 45%, rgba(255, 253, 249, 0) 100%);
+}
+
+/* 4-Card Moka Grid */
+.philosophy-moka-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.philosophy-moka-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgba(254, 245, 167, 0.45);
+  background: #24080D;
+  box-shadow: 0 16px 42px rgba(36, 8, 13, 0.14),
+              -4px 0 20px rgba(255, 255, 255, 0.4),
+              4px 0 20px rgba(255, 255, 255, 0.4);
+  aspect-ratio: 9 / 15.6;
+  min-height: 490px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.philosophy-moka-card:hover {
+  transform: translateY(-8px);
+  border-color: #FEF5A7;
+  box-shadow: 0 24px 55px rgba(36, 8, 13, 0.28),
+              -6px 0 28px rgba(255, 255, 255, 0.65),
+              6px 0 28px rgba(255, 255, 255, 0.65);
+}
+
+/* Soft White Fade on Right and Left Borders of Each Card */
+.philosophy-card-edge-fade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  background: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.12) 8%, transparent 22%),
+    linear-gradient(to left, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.12) 8%, transparent 22%);
+  transition: opacity 0.35s ease;
+}
+
+.philosophy-moka-card:hover .philosophy-card-edge-fade {
+  opacity: 0.85;
+}
+
+/* Background Cake Photography */
+.philosophy-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: contrast(1.06) brightness(0.92);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.philosophy-moka-card:hover .philosophy-card-bg {
+  transform: scale(1.07);
+  filter: contrast(1.1) brightness(0.98);
+}
+
+/* Deep Obsidian & Burgundy Brand Gradient Overlay for Contrast */
+.philosophy-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(36, 8, 13, 0.62) 0%,
+    rgba(36, 8, 13, 0.45) 24%,
+    rgba(98, 25, 39, 0.68) 55%,
+    rgba(36, 8, 13, 0.92) 82%,
+    rgba(36, 8, 13, 0.98) 100%
+  );
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.philosophy-moka-card:hover .philosophy-card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(36, 8, 13, 0.52) 0%,
+    rgba(36, 8, 13, 0.38) 24%,
+    rgba(98, 25, 39, 0.62) 55%,
+    rgba(36, 8, 13, 0.90) 82%,
+    rgba(36, 8, 13, 0.97) 100%
+  );
+}
+
+/* Content Container Inside Card */
+.philosophy-card-inner {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 22px;
+}
+
+/* Top Bar: Brand & Value Tag Pill */
+.philosophy-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.philosophy-brand-logo {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #FEF5A7;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.philosophy-index-pill {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FEF5A7;
+  background: rgba(254, 245, 167, 0.16);
+  border: 1px solid rgba(254, 245, 167, 0.35);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Center: Punchy Vibe Quote */
+.philosophy-card-center {
+  padding: 18px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.philosophy-vibe-quote {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.4rem, 1.8vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: #FEF5A7;
+  text-transform: lowercase;
+  margin: 0;
+  text-shadow: 0 3px 14px rgba(20, 4, 7, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Bottom: Value Title + Description */
+.philosophy-card-bottom {
+  padding-top: 14px;
+  border-top: 1px solid rgba(254, 245, 167, 0.22);
+  text-align: left;
+}
+
+.philosophy-value-title {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FEF5A7;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.philosophy-value-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(250, 247, 242, 0.92);
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1024px) {
+  .philosophy-moka-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 580px) {
+  .philosophy-moka-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+}
+
+/* Studio banner */
+.about-studio-banner {
+  background: linear-gradient(135deg, var(--color-obsidian) 0%, #2A1F1B 100%);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.studio-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-brand-primary-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.studio-info h3 {
+  font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 8px 0 10px;
+}
+
+.studio-info p {
+  color: var(--color-gray-300);
+  font-size: 0.95rem;
+  margin: 0 0 18px;
+  max-width: 540px;
+}
+
+.studio-contact-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.studio-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-cream);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.studio-link:hover {
+  color: var(--color-brand-primary-light);
+}
+
+.studio-wa-btn {
+  background: #25D366;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.studio-wa-btn:hover {
+  background: #1EBE5D;
+}
+
+@media (max-width: 991px) {
+  .about-story-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-portrait-tag {
+    right: 10px;
+  }
+  .about-sig-block {
+    justify-content: center;
+  }
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero-title {
+    font-size: 2rem;
+  }
+}

@@ -1,121 +1,67 @@
-import { useState } from 'react'
-import { ArrowLeft, ArrowRight, Play, Plus, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './TourDocumentation.css'
 
-const slides = [
-  { label: 'Safari Adventure', location: 'Maasai Mara', image: '/images/zebras.webp' },
-  { label: 'Wildlife Encounter', location: 'Amboseli', image: '/images/mt-kenya.webp' },
-  { label: 'Mountain Views', location: 'Mount Kenya', image: '/images/mt-kenya.webp' },
-]
-
-const inclusions = [
-  'Pick-Up and Drop-Off',
-  'Transportation',
-  'Game Drives',
-  'Professional Tour Guide',
-  'Photographer',
-  'Breakfast and Lunch',
+const STEPS = [
+  {
+    number: '01',
+    title: 'Tell us where and when',
+    desc: 'Pick a departure, or send a rough idea and a budget. A safari designer who knows Kenya firsthand replies within one working day.',
+  },
+  {
+    number: '02',
+    title: 'We plan it with you',
+    desc: 'You get a day-by-day route and one fixed price. Change anything you like. A 30 percent deposit holds your place with flexible Lipa Pole Pole installments.',
+  },
+  {
+    number: '03',
+    title: 'Travel with a local leader',
+    desc: 'Meet your Kenyan guide on arrival in Nairobi or Mombasa. 4×4 Cruisers, park fees and lodges are handled, and our team is on call day and night.',
+  },
 ]
 
 export default function TourDocumentation() {
-  const [active, setActive] = useState(0)
-  const slide = slides[active]
-
-  const goTo = (dir) => setActive((prev) => (prev + dir + slides.length) % slides.length)
-
   return (
-    <section className="tourdoc">
-      <div className="tourdoc__inner">
-        <div className="tourdoc__col tourdoc__col--left">
-          <span className="tourdoc__badge">
-            <span className="tourdoc__badge-icon"><Plus size={12} /></span>
-            Tour Documentation
-          </span>
+    <div className="howworks-wrap">
+      <section className="howworks">
+        <div className="howworks__inner">
+        <div className="howworks__photo-wrap">
+          <img
+            src="/images/tourist-truck.webp"
+            alt="Packed 4x4 safari cruiser heading down a golden savanna trail in Kenya"
+            className="howworks__photo"
+            loading="lazy"
+          />
+        </div>
 
-          <h2 className="tourdoc__title">
-            Capture Your <span>Unforgettable Moments</span>
+        <div className="howworks__content">
+          <span className="howworks__eyebrow">HOW IT WORKS</span>
+
+          <h2 className="howworks__heading">
+            From a rough idea to your Kenya tour departure
           </h2>
 
-          <div className="tourdoc__review">
-            <h4>Customer Review</h4>
-            <p className="tourdoc__quote">
-              Our safari was unforgettable. The FOMO Travel team made every moment
-              effortless, and the photographs captured memories we will always treasure.
-            </p>
+          <ol className="howworks__steps">
+            {STEPS.map((step) => (
+              <li key={step.number} className="howworks__step">
+                <span className="howworks__num" aria-hidden="true">
+                  {step.number}
+                </span>
+                <div className="howworks__step-body">
+                  <h3 className="howworks__step-title">{step.title}</h3>
+                  <p className="howworks__step-desc">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
 
-            <div className="tourdoc__profile">
-              <span className="tourdoc__avatar" />
-              <div>
-                <p className="tourdoc__name">James Mwangi</p>
-                <p className="tourdoc__location">Nairobi, Kenya</p>
-              </div>
-            </div>
-
-            <div className="tourdoc__pills">
-              <span className="tourdoc__pill">
-                Rating 5.0 <Star size={12} fill="currentColor" />
-              </span>
-              <span className="tourdoc__pill">Premium Package</span>
-            </div>
-          </div>
-
-          <div className="tourdoc__inclusions">
-            <h4>Our safari package includes:</h4>
-            <div className="tourdoc__pills tourdoc__pills--wrap">
-              {inclusions.map((item) => (
-                <span key={item} className="tourdoc__pill">{item}</span>
-              ))}
-            </div>
-          </div>
+          <Link to="/travel-plan" className="howworks__btn">
+            <span>More about how we work</span>
+            <ArrowRight size={14} strokeWidth={2} />
+          </Link>
         </div>
-
-        <div className="tourdoc__col tourdoc__col--center">
-          <div className="tourdoc__featured">
-            <img src={slide.image} alt={slide.location} className="tourdoc__featured-img" />
-            <div className="tourdoc__featured-overlay">
-              <div className="tourdoc__featured-text">
-                <span>{slide.label}</span>
-                <h3>{slide.location}</h3>
-              </div>
-              <div className="tourdoc__featured-nav">
-                <button onClick={() => goTo(-1)} aria-label="Previous">
-                  <ArrowLeft size={16} />
-                </button>
-                <button onClick={() => goTo(1)} aria-label="Next">
-                  <ArrowRight size={16} />
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div className="tourdoc__col tourdoc__col--right">
-          <p className="tourdoc__intro">
-            Relive the magic of your Kenyan adventure with our professional photo
-            and video documentation services.
-          </p>
-
-          <div className="tourdoc__video">
-            <img src="/images/zebras.webp" alt="Video highlights" className="tourdoc__video-img" />
-            <button className="tourdoc__play" aria-label="Play video">
-              <Play size={20} fill="currentColor" />
-            </button>
-          </div>
-
-          <h4 className="tourdoc__video-title">Video Highlights</h4>
-          <p className="tourdoc__video-desc">
-            Experience the best moments from our Kenyan safari through this
-            professionally curated video compilation.
-          </p>
-
-          <div className="tourdoc__cta-row">
-            <button className="tourdoc__cta">View All Documentation</button>
-            <button className="tourdoc__cta-icon" aria-label="Play">
-              <Play size={16} fill="currentColor" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

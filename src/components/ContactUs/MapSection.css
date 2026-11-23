@@ -1,9 +1,0 @@
-.mapsection {
-  padding: 0 var(--space-6) var(--space-16);
-}
-
-.mapsection__frame {
-  height: 360px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #d8dde2, #aab4bd);
-}
