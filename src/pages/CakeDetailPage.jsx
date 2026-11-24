@@ -104,16 +104,49 @@ export default function CakeDetailPage({ forcedCakeId }) {
         url: currentUrl,
         priceCurrency: 'KES',
         price: cake.price || 3200,
+        validFrom: '2026-01-01',
         priceValidUntil: '2027-12-31',
         itemCondition: 'https://schema.org/NewCondition',
         availability: 'https://schema.org/InStock',
+        shippingDetails: {
+          '@type': 'OfferShippingDetails',
+          shippingRate: {
+            '@type': 'MonetaryAmount',
+            value: '300',
+            currency: 'KES'
+          },
+          shippingDestination: {
+            '@type': 'DefinedRegion',
+            addressCountry: 'KE'
+          },
+          deliveryTime: {
+            '@type': 'ShippingDeliveryTime',
+            handlingTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 0,
+              maxValue: 1,
+              unitCode: 'DAY'
+            },
+            transitTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 0,
+              maxValue: 1,
+              unitCode: 'DAY'
+            }
+          }
+        },
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          applicableCountry: 'KE',
+          returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted'
+        },
         seller: {
           '@type': 'Bakery',
           name: 'Lany Cake Shop',
-          telephone: BUSINESS_INFO.phone || '+254708779955',
+          telephone: BUSINESS_INFO.phoneFormatted || '+254758582215',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Kamakis Eastern Bypass',
+            streetAddress: 'Greek Towers, Kamakis Eastern Bypass',
             addressLocality: 'Ruiru',
             addressRegion: 'Nairobi Metro',
             addressCountry: 'KE'
