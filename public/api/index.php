@@ -11,7 +11,7 @@ if ($origin !== '' && preg_match($allowedOriginPattern, $origin)) {
 } else {
     header('Access-Control-Allow-Origin: https://lanycakes.co.ke');
 }
-header('Access-Control-Allow-Methods: GET, POST, PATCH, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -314,15 +314,48 @@ if ($route === 'journal/admin/all' && $_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 if ($route === 'journal/upsert' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $body = getJsonBody();
+    $body = [];
+    if (!empty($_POST['meta_json'])) {
+        $decodedMeta = json_decode($_POST['meta_json'], true);
+        if (is_array($decodedMeta)) {
+            $body = $decodedMeta;
+        }
+    }
+    if (!empty($_POST)) {
+        foreach (['id', 'slug', 'title', 'status'] as $field) {
+            if (isset($_POST[$field]) && $_POST[$field] !== '') {
+                $body[$field] = $_POST[$field];
+            }
+        }
+    }
+    if (empty($body)) {
+        $body = getJsonBody();
+    }
+
+    if (!empty($_FILES['cover_image']) && ($_FILES['cover_image']['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_OK) {
+        $uploadDir = dirname(__DIR__) . '/uploads/journal';
+        if (!is_dir($uploadDir)) {
+            @mkdir($uploadDir, 0755, true);
+        }
+        $ext = strtolower(pathinfo($_FILES['cover_image']['name'] ?? '', PATHINFO_EXTENSION));
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'gif'], true)) {
+            $fileName = 'journal-' . date('YmdHis') . '-' . bin2hex(random_bytes(4)) . '.' . $ext;
+            $destPath = $uploadDir . '/' . $fileName;
+            if (@move_uploaded_file($_FILES['cover_image']['tmp_name'], $destPath)) {
+                $body['image'] = '/uploads/journal/' . $fileName;
+            }
+        }
+    }
+
     $journalFile = $dataDir . '/journal_posts.json';
     $posts = readOrders($journalFile);
     $postId = trim($body['id'] ?? ($body['slug'] ?? ('post-' . bin2hex(random_bytes(4)))));
     $body['id'] = $postId;
     $updated = false;
     foreach ($posts as $idx => $p) {
-        if (($p['id'] ?? '') === $postId || ($p['slug'] ?? '') === ($body['slug'] ?? '__none__')) {
+        if (($p['id'] ?? '') === $postId || (!empty($body['slug']) && ($p['slug'] ?? '') === $body['slug'])) {
             $posts[$idx] = array_merge($p, $body);
+            $body = $posts[$idx];
             $updated = true;
             break;
         }
@@ -332,6 +365,26 @@ if ($route === 'journal/upsert' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     writeOrders($journalFile, $posts);
     echo json_encode(['success' => true, 'post' => $body]);
+    exit;
+}
+
+if (preg_match('#^journal/([A-Za-z0-9_-]+)/status$#', $route, $m) && $_SERVER['REQUEST_METHOD'] === 'PATCH') {
+    $target = $m[1];
+    $body = getJsonBody();
+    $nextStatus = ($body['status'] ?? '') === 'draft' ? 'draft' : 'published';
+    $journalFile = $dataDir . '/journal_posts.json';
+    $posts = readOrders($journalFile);
+    $updatedPost = null;
+    foreach ($posts as $idx => $p) {
+        if (($p['id'] ?? '') === $target || ($p['slug'] ?? '') === $target) {
+            $posts[$idx]['status'] = $nextStatus;
+            $posts[$idx]['updatedAt'] = round(microtime(true) * 1000);
+            $updatedPost = $posts[$idx];
+            break;
+        }
+    }
+    writeOrders($journalFile, $posts);
+    echo json_encode(['success' => true, 'post' => $updatedPost]);
     exit;
 }
 

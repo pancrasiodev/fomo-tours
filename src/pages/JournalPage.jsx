@@ -174,37 +174,56 @@ export default function JournalPage() {
             </p>
           </div>
 
-          <div className="journal-catalog__grid">
-            {posts.map((post) => (
-              <Link
-                key={post.id || post.slug}
-                to={`/blog/${post.slug}`}
-                className="jpost-card"
-              >
-                <div className="jpost-card__img-wrap">
-                  <img
-                    src={post.image || '/images/diani-coast.jpg'}
-                    alt={post.alt || post.title}
-                    className="jpost-card__img"
-                    loading="lazy"
-                  />
-                  <span className="jpost-card__badge">
-                    <span>Read story</span>
-                    <ArrowRight size={13} strokeWidth={2} />
-                  </span>
-                </div>
+          {posts.length === 0 ? (
+            <div style={{
+              background: '#FFFFFF',
+              border: '1px solid rgba(36, 8, 13, 0.1)',
+              borderRadius: '18px',
+              padding: '36px 28px',
+              textAlign: 'center',
+              color: '#4A2617',
+              maxWidth: '580px'
+            }}>
+              <p style={{ margin: 0, fontSize: '1.05rem', fontWeight: 600 }}>
+                No published blog stories yet.
+              </p>
+              <p style={{ margin: '8px 0 0', fontSize: '0.92rem', opacity: 0.78 }}>
+                Publish your first article in Content Desk and it will appear here automatically.
+              </p>
+            </div>
+          ) : (
+            <div className="journal-catalog__grid">
+              {posts.map((post) => (
+                <Link
+                  key={post.id || post.slug}
+                  to={`/blog/${post.slug}`}
+                  className="jpost-card"
+                >
+                  <div className="jpost-card__img-wrap">
+                    <img
+                      src={post.image || '/images/lany/birthday-cakes.webp'}
+                      alt={post.alt || post.title}
+                      className="jpost-card__img"
+                      loading="lazy"
+                    />
+                    <span className="jpost-card__badge">
+                      <span>Read story</span>
+                      <ArrowRight size={13} strokeWidth={2} />
+                    </span>
+                  </div>
 
-                <div className="jpost-card__meta">
-                  <span>{post.category}</span>
-                  <span aria-hidden="true">•</span>
-                  <span>{post.readTime}</span>
-                </div>
+                  <div className="jpost-card__meta">
+                    <span>{post.category}</span>
+                    <span aria-hidden="true">•</span>
+                    <span>{post.readTime}</span>
+                  </div>
 
-                <h2 className="jpost-card__title">{post.title}</h2>
-                <p className="jpost-card__excerpt">{post.excerpt}</p>
-              </Link>
-            ))}
-          </div>
+                  <h2 className="jpost-card__title">{post.title}</h2>
+                  <p className="jpost-card__excerpt">{post.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
