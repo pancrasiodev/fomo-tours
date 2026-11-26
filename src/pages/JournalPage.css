@@ -6,7 +6,7 @@
 .journal-catalog {
   background: #FFF7E5;
   width: 100%;
-  padding: clamp(56px, 7.5vw, 108px) clamp(24px, 7vw, 110px) clamp(84px, 10.5vw, 136px);
+  padding: clamp(96px, 9.5vw, 128px) clamp(24px, 7vw, 110px) clamp(84px, 10.5vw, 136px);
 }
 
 .journal-catalog__inner {

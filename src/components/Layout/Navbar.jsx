@@ -73,10 +73,14 @@ export default function Navbar() {
     }
   ];
 
+  const needsSolidHeader =
+    location.pathname.startsWith('/blog') ||
+    location.pathname.startsWith('/journal');
+
   return (
     <>
       {/* Floating Transparent Navigation Header */}
-      <header className={`lany-transparent-header ${isScrolled ? 'is-scrolled' : ''}`}>
+      <header className={`lany-transparent-header ${isScrolled || needsSolidHeader ? 'is-scrolled' : ''}`}>
         <div className="lany-header-row">
           {/* Left: Official Brand Logo */}
           <Link to="/" className="lany-nav-brand" aria-label="Lany Cake Shop Home">

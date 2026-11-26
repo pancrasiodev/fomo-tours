@@ -160,8 +160,43 @@ function normalizeDbJournal(post) {
   }
 }
 
+function getSeededJournals() {
+  return RECIPES_AND_POSTS.map((base) => {
+    const bodyArray = base.body || base.content || []
+    return {
+      status: 'published',
+      isCurated: true,
+      currentStep: 3,
+      ...base,
+      body: bodyArray,
+      bodyText: base.bodyText || bodyArray.join('\n\n'),
+      id: base.slug || base.id,
+      slug: base.slug || base.id,
+    }
+  })
+}
+
+function mergeJournalsWithSeed(primaryList = []) {
+  const seen = new Set()
+  const merged = []
+  for (const item of primaryList) {
+    if (!item) continue
+    const key = item.slug || item.id
+    if (key) seen.add(key)
+    if (item.id) seen.add(item.id)
+    merged.push(item)
+  }
+  for (const seed of getSeededJournals()) {
+    if (!seen.has(seed.slug) && !seen.has(seed.id)) {
+      merged.push(seed)
+    }
+  }
+  return merged
+}
+
 /**
- * Fetch journal stories directly from the live database API (`journal_posts` table).
+ * Fetch journal stories directly from the live Content Desk API (`/api/journal`),
+ * preserving built-in bakery guides alongside any newly published Content Desk posts.
  */
 export async function syncJournalsFromApi({ includeDrafts = false } = {}) {
   const token = getValidAdminToken()
@@ -192,7 +227,7 @@ export async function syncJournalsFromApi({ includeDrafts = false } = {}) {
         const unsynced = Object.values(offlineDrafts).filter(
           (d) => d && !dbIds.has(d.id) && !dbIds.has(d.slug)
         )
-        setCachedDbJournals([...unsynced, ...incoming], true)
+        setCachedDbJournals(mergeJournalsWithSeed([...unsynced, ...incoming]), true)
       } else {
         const existing = getCachedDbJournals() || []
         const draftsOnly = existing.filter((p) => p.status === 'draft')
@@ -200,12 +235,12 @@ export async function syncJournalsFromApi({ includeDrafts = false } = {}) {
         const remainingDrafts = draftsOnly.filter(
           (d) => !pubSlugs.has(d.id) && !pubSlugs.has(d.slug)
         )
-        setCachedDbJournals([...remainingDrafts, ...incoming], true)
+        setCachedDbJournals(mergeJournalsWithSeed([...remainingDrafts, ...incoming]), true)
       }
 
       return getCachedDbJournals()
     } catch {
-      return getCachedDbJournals() || []
+      return getCachedDbJournals() || getSeededJournals()
     } finally {
       if (useAdminEndpoint) inflightAdminJournals = null
       else inflightPublicJournals = null
@@ -220,21 +255,9 @@ export async function syncJournalsFromApi({ includeDrafts = false } = {}) {
 
 export function getAllManagedJournals({ includeDrafts = false } = {}) {
   const cachedDb = getCachedDbJournals()
-  let all
-
-  if (isJournalDbAuthoritative() && Array.isArray(cachedDb)) {
-    all = cachedDb
-  } else {
-    all = RECIPES_AND_POSTS.map((base) => ({
-      status: 'published',
-      isCurated: true,
-      currentStep: 3,
-      ...base,
-      body: base.body || base.content || [],
-      id: base.slug,
-      slug: base.slug,
-    }))
-  }
+  const all = isJournalDbAuthoritative() && Array.isArray(cachedDb)
+    ? mergeJournalsWithSeed(cachedDb)
+    : getSeededJournals()
 
   if (includeDrafts) return all
   return all.filter((p) => (p.status || 'published') === 'published' && p.title?.trim())
